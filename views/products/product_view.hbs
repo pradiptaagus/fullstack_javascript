@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/all.css">
+</head>
+<body>
+    {{> navbar}}
+    <div class="container" style="margin-top: 5rem">        
+        <div class="columns">
+            <div class="column is-3">
+                {{> sidebar}}
+            </div>
+            <div class="column">
+                <h1 class="title">Product List</h1>
+                <a href="/product/add" class="button is-success">Add product</a>
+                <div class="table-container" style="margin-top: 2rem;">
+                    <table class="table is-striped is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Product ID</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each results}}
+                                <tr>
+                                    <td class="text-center">{{setIndex @index}}.</td>
+                                    <td>{{productID}}</td>
+                                    <td>{{name}}</td>
+                                    <td>Rp.{{setCurrency price}}</td>
+                                    <td>
+                                        <a href="/product/edit/{{productID}}" class="button is-info is-small"><i class="fa fa-pen"></i></a>
+                                        <button class="button is-danger is-small" onclick="showModal('{{productID}}')"><i class="fa fa-trash-alt"></i></button>
+                                    </td>
+                                </tr>
+                            {{else}}
+                                <tr><td colspan="5" style="text-align: center">Empty</td></tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="modal">
+        <div class="modal-background">
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Confirm removing product</p>
+                    <button class="delete" aria-label="close" onclick="hideModal()"></button>
+                </header>
+                <section class="modal-card-body">
+                <!-- Content ... -->
+                Are you sure want to delete this product?
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-danger" id="delete-btn-modal" onclick="deleteProduct()">Delete</bu>
+                    <button class="button" onclick="hideModal()">Cancel</button>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/js/script.js"></script>
+    <script>
+        var modal = document.getElementById('modal');
+        var delete_btn_modal = document.getElementById('delete-btn-modal');
+
+        function showModal(productID) {            
+            modal.classList.add('is-active');
+            delete_btn_modal.setAttribute('data-id', productID);
+        }
+
+        function hideModal() {
+            modal.classList.remove('is-active');
+        }
+        
+        function deleteProduct() {
+            hideModal();
+            let productID = delete_btn_modal.getAttribute('data-id');
+
+            fetch('/product/delete/' + productID).then(function() {
+                window.location.reload(false);
+            });
+        }
+    </script>
+</body>
+</html>
