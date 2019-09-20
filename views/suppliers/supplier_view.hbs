@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Supplier</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/all.css">
+</head>
+<body>
+    {{> navbar}}
+    <div class="container is-fluid top-gap bottom-gap">
+        <div class="columns">
+            <div class="column is-2">
+                {{> sidebar}}
+            </div>
+            <div class="column">
+                <h1 class="title">Supplier list</h1>
+                <a href="/supplier/add" class="button is-success">Add supplier</a>
+                <div class="table-container" style="margin-top: 2rem">
+                    <table class="table is-striped id-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Supplier ID</th>
+                                <th>Name</th>
+                                <th>Address</th>
+                                <th>Phone</th>
+                                <th>NPWP</th>
+                                <th>Email</th>
+                                <th>Register date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each results}}
+                                <tr>
+                                    <td class="text-center">{{setIndex @index}}.</td>
+                                    <td>{{supplierID}}</td>
+                                    <td>{{name}}</td>
+                                    <td>{{address}}, {{subdistrict}}, {{city}}, {{country}}</td>
+                                    <td>{{phone}}</td>
+                                    <td>{{npwp}}</td>
+                                    <td>{{email}}</td>
+                                    <td>{{register_date}}</td>
+                                    <td>
+                                        <button class="button is-info is-small"><i class="fa fa-pen"></i></button>
+                                        <button class="button is-danger is-small"><i class="fa fa-trash-alt"></i></button>
+                                    </td>
+                                </tr>
+                            {{else}}
+                                <tr><td colspan="8">Empty</td></tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{> footer}}
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>

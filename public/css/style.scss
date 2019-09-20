@@ -1,1 +1,25 @@
 @import '../../node_modules/bulma/bulma.sass';
+
+.top-gap {
+    margin-top: 2rem !important;
+}
+
+.bottom-gap {
+    margin-bottom: 2rem !important;
+}
+
+// Mobile
+@media screen and (max-width: 768px) {
+    .container {
+        padding-right: 1rem !important;
+        padding-left: 1rem !important;
+    }
+}
+
+// Tablet
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+    .container {
+        padding-right: 1rem !important;
+        padding-left: 1rem !important; 
+    }    
+}

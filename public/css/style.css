@@ -9141,4 +9141,25 @@ label.panel-block:hover {
   padding: 3rem 1.5rem 6rem;
 }
 
+.top-gap {
+  margin-top: 2rem !important;
+}
+
+.bottom-gap {
+  margin-bottom: 2rem !important;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  .container {
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

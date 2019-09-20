@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    {{> navbar}}
+    <div class="container is-fluid top-gap bottom-gap">
+        <div class="columns">
+            <div class="column is-2">
+                {{> sidebar}}
+            </div>
+            <div class="column">
+                <h1 class="title">Add supplier</h1>
+                <div class="box">
+                    <form action="/supplier" method="post">
+                        <div class="field">
+                            <label class="label" for="name">Supplier name</label>
+                            <div class="control">
+                                <input class="input" type="text" name="name" id="name">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="address">Address</label>
+                            <div class="control">
+                                <input class="input" type="text" name="address" id="address">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="subdistrict">Subdistrict</label>
+                            <div class="control">
+                                <div class="select">
+                                <select name="subdistrict" id="subdistrict">
+                                    <option value="">Select subdistrict</option>
+                                </select>
+                            </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: '/api/province',
+                method: 'get'
+            }).then(response => {
+                if (response.rajaongkir.status.code === 200) {
+                    //console.log(response.rajaongkir.results);
+                    $.each(response.rajaongkir.results, function(index, value) {                        
+                        $('#subdistrict').append(
+                            '<option value="'+ value.province_id +'">'+ value.province +'</option>'
+                        )
+                    })
+                }
+            });
+        });
+    </script>
+</body>
+</html>
