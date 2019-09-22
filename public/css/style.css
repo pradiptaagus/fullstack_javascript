@@ -9141,6 +9141,14 @@ label.panel-block:hover {
   padding: 3rem 1.5rem 6rem;
 }
 
+@font-face {
+  font-family: "Nunito";
+  src: url("../nunito/Nunito-Regular.ttf");
+}
+body {
+  font-family: "Nunito", "sans-serif";
+}
+
 .top-gap {
   margin-top: 2rem !important;
 }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="columns is-centered" style="margin-top: 10vh; margin-bottom: 10vh">
+            <div class="column is-one-third">
+                <h1 class="title" style="text-align: center">Register</h1>
+                <div class="box">
+                    <form action="/register" method="POST">
+                        <div class="field">
+                            <label class="label" for="name">Name</label>
+                            <div class="control">
+                                <input class="input" type="text" name="name" id="name">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="email">Email</label>
+                            <div class="control">
+                                <input class="input" type="text" name="email" id="email" placeholder="example@mail.com">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="gender">Gender</label>
+                            <div class="control">
+                                <div class="select">
+                                    <select name="gender" id="gender">
+                                        <option value="">Select gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="password">Password</label>
+                            <div class="control">
+                                <input class="input" type="password" name="password" id="password" placeholder="password">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="password_confirmation">Confirm password</label>
+                            <div class="control">
+                                <input class="input" type="password" name="password_confirmation" id="password_confirmation" placeholder="password">
+                            </div>
+                        </div>
+                        <div class="field" style="text-align: center; margin-top: 1.5rem">
+                            <button type="submit" class="button is-info">Register</button>
+                        </div>
+                        <div class="field" style="text-align: center">
+                            <p class="help">Already have account? <a href="/login">Go to login</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

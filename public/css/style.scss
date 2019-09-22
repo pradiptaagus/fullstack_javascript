@@ -1,5 +1,14 @@
 @import '../../node_modules/bulma/bulma.sass';
 
+@font-face {
+    font-family: 'Nunito';
+    src: url('../nunito/Nunito-Regular.ttf');
+}
+
+body {
+    font-family: 'Nunito', 'sans-serif';
+}
+
 .top-gap {
     margin-top: 2rem !important;
 }
